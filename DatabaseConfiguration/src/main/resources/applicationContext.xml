@@ -11,9 +11,9 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.springTutorial.entities" />
+	<context:component-scan base-package="Package that contains the entities" />
 
-	<jpa:repositories base-package="com.springTutorial.repositories" />
+	<jpa:repositories base-package="Package that contains the repositories" />
 
 	<tx:annotation-driven />
 
@@ -24,5 +24,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="persistenceUnit"/>
 	</bean>
-	
+
 </beans>
