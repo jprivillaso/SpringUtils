@@ -4,5 +4,5 @@
 
   Let's say you have a filter of users by name, date and age. You can send
   one, two, or send them all. In this case, it is really useful to have a JPA
-  Specification configured. It creates dyanmically your queries and it's quite
-  clear
+  Specification configured. It creates dynamically your queries and it's quite
+  simple
