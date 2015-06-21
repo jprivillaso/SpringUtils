@@ -3,19 +3,25 @@ package com.springTutorial.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
+import org.springframework.data.jpa.domain.Specification;
 
 @Entity
 public class User {
-	
+
 	@Id
 	private long id;
-	
+
 	@Column
 	private String name;
-	
+
 	@Column
-	private String lastName;
-	
+	private String lastname;
+
 	@Column
 	private String email;
 
@@ -35,12 +41,12 @@ public class User {
 		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {
@@ -50,5 +56,46 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public static Specification<User> isNameLike(final String name) {
+
+		return new Specification<User>() {
+
+			@Override
+			public Predicate toPredicate(Root<User> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+
+				return cb.like(root.get(User_.name), "%" + name + "%");
+
+			}
+		};
+	}
 	
+	public static Specification<User> isLastnameLike(final String lastname) {
+
+		return new Specification<User>() {
+
+			@Override
+			public Predicate toPredicate(Root<User> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+
+				return cb.like(root.get(User_.lastname), "%" + lastname + "%");
+
+			}
+		};
+	}
+	
+	public static Specification<User> isEmailLike(final String email) {
+
+		return new Specification<User>() {
+
+			@Override
+			public Predicate toPredicate(Root<User> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+
+				return cb.like(root.get(User_.email), "%" + email + "%");
+
+			}
+		};
+	}
 }

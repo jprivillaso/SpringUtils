@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/lodash.min.js"></script>
 	<script type="text/javascript" src="js/springTutorial.js"></script>
 </head>
 <body>
@@ -13,9 +14,12 @@
 		<h2>Users List</h2>
 		<div>
 			<h4>Filters</h4>
-			Name<input type="text" class="form-control"/>
-			LastName<input type="text" class="form-control"/>
-			Email<input type="text" class="form-control"/>		
+			Name<input id="name" type="text" class="form-control"/>
+			LastName<input id="lastname" type="text" class="form-control"/>
+			Email<input id="email" type="text" class="form-control"/>		
+		</div>
+		<div>
+			<button type="button" class="btn btn-default" id="applyBtn">Apply</button>
 		</div>
 		<table class="table table-striped">
 			<thead>
